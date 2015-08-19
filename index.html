@@ -68,7 +68,7 @@ function runQuery(){
   distinctIDs.push(distinctID);
 
   // Mixpanel API query and callback 
-  MP.api.query('/api/2.0/stream/query', {to_date: toDateFormatted, from_date: fromDateFormatted, distinct_ids: distinctIDs, limit: 1000}, {dataType: 'json'}).done(function(results) {
+  MP.api.query('/api/2.0/stream/query', {to_date: toDateFormatted, from_date: fromDateFormatted, distinct_ids: distinctIDs}, {dataType: 'json'}).done(function(results) {
     
     // Log results
     console.log('got json\n', results.results.events);
@@ -85,7 +85,7 @@ function runQuery(){
     if(results.results.events.length == 0) {
       alert('No results');
     }
-    alert("LENGTH = "+results.results.events.length);
+    //alert("LENGTH = "+results.results.events.length);
     for(var i = 0; i < results.results.events.length; i++){
       
       // Event and event time row
